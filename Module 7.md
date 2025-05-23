@@ -1,5 +1,8 @@
 EXP NO:1 C PROGRAM FOR ARRAY OF STRUCTURE TO CHECK ELIGIBILITY FOR THE VACCINE.
-
+```
+Name : M.Suryakumar
+Register Number : 212224040340
+```
 Aim:
 To write a C program for array of structure to check eligibility for the vaccine person age above 6 years of age.
 
@@ -16,12 +19,35 @@ Else
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+struct eligible {
+    int age;
+    char n[50];
+};
+
+int main() {
+    struct eligible e;
+    scanf("%s", e.n);
+    scanf("%d", &e.age);
+
+    if (e.age <= 6)
+        printf("Vaccine Eligibility: No\n");
+    else
+        printf("Vaccine Eligibility: Yes\n");
+
+    printf("Name: %s\nAge: %d\n", e.n, e.age);
+
+    return 0;
+}
+```
 
 
 Output:
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/09281c01-3c4a-4634-a14e-68c1439cd276)
+
 
 
 Result:
@@ -44,7 +70,32 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+struct numbers {
+    int a, b;
+};
+
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b;
+    return result;
+}
+
+int main() {
+    struct numbers n, sum;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &n.a, &n.b);
+
+    sum = add(n);
+
+    printf("Sum: %d\n", sum.a);
+
+    return 0;
+}
+```
 
 
 
@@ -52,7 +103,8 @@ Program:
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/0ac6157c-1cad-48e3-9c0c-08711a0dbac6)
+
 
 
 
@@ -86,15 +138,39 @@ Use scanf to input the file name into the name array.
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
 
+int main() {
+    FILE *p;
+    char name[100];
+
+    printf("Enter the file name: ");
+    scanf("%s", name);
+
+    p = fopen(name, "w");
+
+    if (p == NULL) {
+        printf("Error creating file.\n");
+        return 1;
+    }
+
+    printf("File '%s' created successfully.\n", name);
+
+    fclose(p);
+    printf("File closed successfully.\n");
+
+    return 0;
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/24b3adcc-e78f-44c7-ac8b-fb63a2642e47)
+
 
 
 
@@ -133,7 +209,42 @@ Use scanf to input the file name into the name array and the number of strings i
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    char filename[100], text[1000];
+    FILE *file;
+
+    printf("Enter filename: ");
+    scanf("%99s", filename);
+
+    file = fopen(filename, "w+");
+    if (!file) {
+        perror("File error");
+        return 1;
+    }
+
+    printf("Enter text: ");
+    fgets(text, sizeof(text), stdin);
+    text[strcspn(text, "\n")] = 0;
+    fprintf(file, "%s\n", text);
+
+    fprintf(file, "Appended text.\n");
+
+    rewind(file);
+    printf("\nFile contents:\n");
+    char ch;
+    while ((ch = fgetc(file)) != EOF)
+        putchar(ch);
+    printf("\n");
+
+    fclose(file);
+    return 0;
+}
+```
 
 
 
@@ -141,7 +252,8 @@ Program:
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/6be1406e-25b2-4bab-8ea8-e376b612eb83)
+
 
 
 
@@ -187,7 +299,32 @@ Algorithm:
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+struct Student {
+    char name[50];
+    int roll;
+    float marks;
+};
+
+int main() {
+    struct Student s;
+    printf("Enter student name: ");
+    fgets(s.name, sizeof(s.name), stdin);
+
+    printf("Enter roll number: ");
+    scanf("%d", &s.roll);
+
+    printf("Enter marks: ");
+    scanf("%f", &s.marks);
+    printf("\n--- Student Details ---\n");
+    printf("Name       : %s", s.name);
+    printf("Roll No.   : %d\n", s.roll);
+    printf("Marks      : %.2f\n", s.marks);
+
+    return 0;
+}
+```
 
 
 
@@ -195,7 +332,8 @@ Program:
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/cc9211c9-65af-433d-b825-89122cf817e5)
+
 
 
 
